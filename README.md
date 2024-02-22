@@ -1,0 +1,3 @@
+# angular-new-syntex
+
+[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/rathoddhruv/angular-new-syntex)
