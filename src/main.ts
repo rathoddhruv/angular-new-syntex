@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -20,6 +20,12 @@ import { ViewportLazyComponent } from './components/viewport-lazy.component';
   styleUrl: './my-app.scss',
 })
 export class App {
+  constructor() {
+    effect(() => {
+      console.log('Count changed', this.count());
+      console.log(this.count(), 'is', this.countType());
+    });
+  }
   index = 0;
   show = true;
   message = 'hello';
@@ -29,6 +35,20 @@ export class App {
     { id: 3, label: 'Iroman' },
     { id: 4, label: 'Justaman' },
   ];
+
+  count = signal(100);
+  double = computed(() => this.count() * 2);
+  countType = computed(() => (this.count() % 2 === 0 ? 'even' : 'odd'));
+  inc() {
+    this.count.update((c) => c + 1);
+  }
+  reset() {
+    this.count.set(0);
+  }
+
+
+
+  fname = ''
 }
 
 bootstrapApplication(App, {

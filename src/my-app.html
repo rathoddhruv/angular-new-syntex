@@ -93,10 +93,14 @@
         
         <br><mat-divider/>
         <h3>Placeholder</h3>
-        @defer (when false) {
-          <button></button>
-        } @placeholder (minimum 2s) {
-          *** PLACEHOLDER **
+        @defer {
+
+        } @loading (minimum 5s) {
+          loading...
         }
     </mat-card-content>
     </mat-card>
+    <br>
+    ====================================
+    <br>
+    <input type="text" value="fname">
