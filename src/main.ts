@@ -48,7 +48,9 @@ export class App {
 
 
 
-  fname = ''
+  fname = signal('');
+  lname = signal('');
+  fullname = signal('')
 }
 
 bootstrapApplication(App, {
